@@ -25,5 +25,6 @@ const deletar = async (req,res) => {
 module.exports = {
     list,
     listId,
-    create
+    create,
+    deletar
 }
