@@ -5,12 +5,14 @@ const sequelize = require('./config/database.js')
 const sync = require('./config/sync.js')
 const bodyParser = require('body-parser');
 const RouterCategory = require('./routes/categoriaRoutes.js')
+const RouterProduct = require('./routes/produtoRoutes.js')
 var cors = require('cors')
 
 app.use(cors())
 app.use(bodyParser.json());
 app.use('/v1/user', routerUser)       
 app.use('/v1/category',RouterCategory)
+app.use('/v1/product', RouterProduct)
 
 app.listen(10000, () => {
     console.log('http://localhost:10000')

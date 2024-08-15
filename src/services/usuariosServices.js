@@ -29,14 +29,9 @@ const listUserId = async (id) => {
 }
 
 
-const updateUser = async (data) => {
+const updateUser = async (id, data) => {
     try {
-        const id = data.id
-        const listaOBJ = Object.entries(data)
-        const listaFiltrada = listaOBJ.filter(([chave, valor]) => valor !== '')
-        const updateUser = Object.fromEntries(listaFiltrada)
-        console.log(listaFiltrada)
-        await model.update(updateUser, {
+        await model.update(data, {
             where: { id: id }
         })
 

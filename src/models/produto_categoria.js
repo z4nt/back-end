@@ -4,7 +4,7 @@ const Produtos = require('./produtos');
 const Categorias = require('./categorias');
 
 const ProdutoCategoria = sequelize.define('ProdutoCategoria', {
-  ProductId: {
+  Product_Id: {
     type: DataTypes.INTEGER,
     references: {
       model: Produtos,
@@ -12,7 +12,7 @@ const ProdutoCategoria = sequelize.define('ProdutoCategoria', {
     },
     primaryKey: true
   },
-  CategoriaId: {
+  Category_Id: {
     type: DataTypes.INTEGER,
     references: {
       model: Categorias,
@@ -24,7 +24,6 @@ const ProdutoCategoria = sequelize.define('ProdutoCategoria', {
   timestamps: true
 });
 
-Produtos.belongsToMany(Categorias, { through: ProdutoCategoria, foreignKey: 'ProductId', otherKey: 'CategoriaId', as: 'categorias' });
-Categorias.belongsToMany(Produtos, { through: ProdutoCategoria, foreignKey: 'CategoriaId', otherKey: 'ProductId', as: 'produtos' });
+
 
 module.exports = ProdutoCategoria;

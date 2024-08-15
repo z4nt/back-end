@@ -1,4 +1,4 @@
-const service = require('../services/categoriaService')
+const service = require('../services/produtoServices')
 
 const list =  async (req,res)=>{
     let list = await service.list()
@@ -6,7 +6,7 @@ const list =  async (req,res)=>{
 }
 
 const listId = async (req,res) => {
-    const list = await service.listId(req.params.id)
+    const list = await service.listId(req)
     res.send(list)
 }
 
@@ -21,7 +21,7 @@ const deletar = async (req,res) => {
 }
 
 const update = async (req, res) => {
-    await service.update(req.param.id)
+    await service.update(req.param.id,req.body)
     res.send(await service.list)
 }
 

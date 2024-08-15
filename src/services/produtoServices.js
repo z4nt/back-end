@@ -1,4 +1,4 @@
-const model = require('../models/categorias')
+const model = require('../models/produtos')
 
 const list = async () => {
    const list = await model.findAll()
@@ -18,8 +18,8 @@ const deletar = async (req) => {
     await model.destroy({where: {id: req}})
 }
 
-const update = async (req) => {
-    await model.update({where: {id: req}})
+const update = async (id, data) => {
+    await model.update(data, {where: {id: id}})
 }
 
 module.exports = {

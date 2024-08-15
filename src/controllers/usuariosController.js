@@ -17,7 +17,7 @@ const listUserId = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    await service.updateUser(req.query)
+    await service.updateUser(req.params.id,req.body)
     res.send(await service.listUser())
     console.log(req.query)
 }

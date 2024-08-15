@@ -45,4 +45,6 @@ const Produtos = sequelize.define('produtos',{
      timestamps:true
 })
 
+
+
 module.exports = Produtos
