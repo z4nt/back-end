@@ -2,6 +2,7 @@ const { Produtos } = require('../models/produto_categoria')
 const { Categorias } = require('../models/produto_categoria')
 const Imagens = require('../models/imagem')
 const { Transaction } = require('sequelize')
+const Opcoes = require('../models/opcoes')
 
 const list = async () => {
     const list = await Produtos.findAll()
@@ -16,7 +17,7 @@ const listId = async (req) => {
 
 const create = async (productData) => {
     const produto = await Produtos.create(productData);
-    console.log(produto)
+    console.log(produto, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     await produto.addCategorias(productData.category_ids)
 
     const imagens = productData.images
@@ -26,7 +27,19 @@ const create = async (productData) => {
         enable: true
     }))
 
-    Imagens.bulkCreate(imagenADD, {Transaction})
+    await Imagens.bulkCreate(imagenADD, {Transaction})
+
+    const opcoes = productData.options
+    const opcoesAdd = opcoes.map(data => ({
+        "product_id": produto.id,
+        "title": data.title,
+        "shape": data.shape,
+        "radius": data.radius,
+        "type": data.type,
+        "values": data.values
+    }))
+    await Opcoes.bulkCreate(opcoesAdd)
+
 }
 
 const deletar = async (req) => {
