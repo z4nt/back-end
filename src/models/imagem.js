@@ -17,12 +17,13 @@ const imagens = sequelize.define('imagens', {
           },
     },
     enabled: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: true
     },
     path: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
    
 }, {

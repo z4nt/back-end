@@ -11,12 +11,14 @@ const listId = async (req,res) => {
 }
 
 const create = async (req,res) => {
+    console.log(req.body)
     await service.create(req.body)
     res.send(await service.list())
 }
 
 const deletar = async (req,res) => {
-    await service.deletar(req.param.id)
+    console.log(req.params.id)
+    await service.deletar(req.params.id)
     res.send(await service.list())
 }
 

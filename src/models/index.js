@@ -1,10 +1,11 @@
-const Produtos = require('./produtos.js')
-const Categorias = require('./categorias.js')
+// const Produtos = require('./produtos.js')
+// const Categorias = require('./categorias.js')
 
-Produtos.belongsToMany(Categorias, { through: 'ProdutoCategoria', foreignKey: 'Product_Id'});
-Categorias.belongsToMany(Produtos, { through: 'ProdutoCategoria', foreignKey: 'Categoria_Id'});
+// Produtos.belongsToMany(Categorias, { through: 'ProdutoCategoria', foreignKey: 'Product_Id'});
+// Categorias.belongsToMany(Produtos, { through: 'ProdutoCategoria', foreignKey: 'Categoria_Id'});
 
-module.exports = {
-    Produtos,
-    Categorias
-}
+// teste()
+// module.exports = {
+//     Produtos,
+//     Categorias
+// }
