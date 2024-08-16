@@ -21,13 +21,13 @@ const create = async (productData) => {
     await produto.addCategorias(productData.category_ids)
 
     const imagens = productData.images
-    const imagenADD = imagens.map(url =>({
+    const imagensADD = imagens.map(url =>({
         product_id: produto.id,
         path: url.content,
         enable: true
     }))
 
-    await Imagens.bulkCreate(imagenADD, {Transaction})
+    await Imagens.bulkCreate(imagensADD, {Transaction})
 
     const opcoes = productData.options
     const opcoesAdd = opcoes.map(data => ({
