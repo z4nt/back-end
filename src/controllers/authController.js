@@ -8,7 +8,7 @@ const login = async (req, res) => {
     if (result) {
         const token = jwt.sign(dados, process.env.JWT, { expiresIn: '1h' })
         console.log(token)
-        res.send(token)
+        res.json(token)
     } else {
         console.log('Deu ruim no login')
     }  
