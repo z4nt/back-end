@@ -3,9 +3,12 @@ const { Categorias } = require('../models/produto_categoria')
 const Imagens = require('../models/imagem')
 const { Transaction } = require('sequelize')
 const Opcoes = require('../models/opcoes')
+const imagens = require('../models/imagem')
 
 const list = async () => {
-    const list = await Produtos.findAll()
+    const list = await Produtos.findAll(
+        {include: imagens}
+    )
     return list
 }
 
