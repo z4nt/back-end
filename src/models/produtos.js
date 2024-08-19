@@ -37,7 +37,7 @@ const Produtos = sequelize.define('produtos',{
         type: DataTypes.FLOAT,
         allowNull: false, 
     },
-    price_with_descount: {
+    price_with_discount: {
         type: DataTypes.FLOAT,
         allowNull: false
     }
