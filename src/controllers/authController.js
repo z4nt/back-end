@@ -7,6 +7,7 @@ const login = async (req, res) => {
     const result = await Usuario.findOne({ where: { email: dados.email, password: dados.password } })
     if (result) {
         const token = jwt.sign(dados, process.env.JWT, { expiresIn: '1h' })
+        console.log(token)
         res.send(token)
     } else {
         console.log('Deu ruim no login')

@@ -41,10 +41,14 @@
                     password
                 })
             })
-
+            console.log(response)
             if(response.ok){
-                const token = await response.json()
-                localStorage.setItem('accessToken',JSON.stringify(token))
+                // const data = await response.json()
+                const token = response.token
+                console.log('aaaaaaaaaaaaa')
+                console.log(response)
+                localStorage.setItem('accessToken',token)
+
                 console.log('login bem sucedido')
             }else{
                 console.log('erro no login ')
