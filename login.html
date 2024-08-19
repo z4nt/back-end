@@ -43,11 +43,8 @@
             })
 
             if(response.ok){
-                const data = await response.json()
-                const token = data.token
-
-                localStorage.setItem('accessToken',token)
-
+                const token = await response.json()
+                localStorage.setItem('accessToken',JSON.stringify(token))
                 console.log('login bem sucedido')
             }else{
                 console.log('erro no login ')
