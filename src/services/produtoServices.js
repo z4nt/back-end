@@ -7,7 +7,9 @@ const imagens = require('../models/imagem')
 
 const list = async () => {
     const list = await Produtos.findAll(
-        {include: imagens}
+        {include: [imagens,Opcoes]
+        
+        }
     )
     return list
 }
