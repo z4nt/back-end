@@ -1,25 +1,25 @@
-const model = require('../models/categorias')
+const {Categorias} = require('../models/produto_categoria')
 
 const list = async () => {
-   const list = await model.findAll()
+   const list = await Categorias.findAll()
    return list
 }
 
 const listId = async (req) => {
-    const list = await model.findByPk(req)
+    const list = await Categorias.findByPk(req)
     return list
 }
 
 const create = async (req) => {
-    await model.create(req)
+    await Categorias.create(req)
 }
 
 const deletar = async (req) => {
-    await model.destroy({where: {id: req}})
+    await Categorias.destroy({where: {id: req}})
 }
 
 const update = async (id, data) => {
-    await model.update(data, {where: {id: id}})
+    await Categorias.update(data, {where: {id: id}})
 }
 
 module.exports = {
